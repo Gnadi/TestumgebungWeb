@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html ⚡>
+<head>
+    <meta charset="utf-8">
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <!--
+    Additionally used AMP components must be imported in the header.
+    -->
+    <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+    <script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>
+    <script async custom-element="amp-lightbox" src="https://cdn.ampproject.org/v0/amp-lightbox-0.1.js"></script>
+    <script async custom-element="amp-fit-text" src="https://cdn.ampproject.org/v0/amp-fit-text-0.1.js"></script>
+    <link rel="canonical" href="https://ampbyexample.com/components/amp-lightbox/">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <style amp-custom>
+        .lightbox {
+            background: rgba(0,0,0,0.8);
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+        .lightbox h1 {
+            color: white;
+        }
+        .lightbox p {
+            color: white;
+            padding-left: 25%;
+            padding-right: 25%;
+
+        }
+        article#preview {
+            background: #ECEFF1;
+        }
+        /* general styling */
+        article#preview {
+            background-color: #f5f5f5;
+        }
+        /* header with logo and carousel */
+        .header {
+            position: relative;
+            box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+            padding-top: 52px;
+        }
+        .header {
+            background-color: #607D8B;
+        }
+        .header #sample-menu {
+            position:absolute;
+            top:0;
+            left: 0;
+            font-size: 18px;
+            font-weight: 500;
+            color: white;
+            text-transform: uppercase;
+            padding: 13px;
+        }
+        #sidechick{
+            color:whitesmoke;
+        }
+        .header #sample-logo {
+            position:absolute;
+            top:0;
+            left:36px;
+            font-size: 18px;
+            font-weight: 400;
+            color: white;
+            text-transform: uppercase;
+            margin: 16px;
+            height: 32px;
+        }
+        #teamdiv{
+            background-color: #cccccc;
+        }
+        /* search form */
+        .header form {
+            padding: 0;
+        }
+        .header input:-moz-placeholder,
+        /* items */
+        /* tiles */
+        .product-carousel {
+            margin: 16px;
+        }
+        .product-carousel .tile {
+            margin: 8px 0;
+        }
+        #hero-images {
+            object-fit: contain;
+        }
+        #hero-images .caption {
+            text-align: center;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 24px;
+            background: rgba(200, 200, 200, 0.8);
+            color: #333;
+            font-size: 36px;
+            max-height: 30%;
+            font-weight: 300;
+        }
+        section[expanded] .show-more {
+            display: none;
+        }
+        section:not([expanded]) .show-less {
+            display: none;
+        }
+        .nested-accordion h4 {
+            font-size: 14px;
+            background-color: #ddd;
+        }
+        body{
+            padding-left: 10%;
+            padding-right: 10%;
+        }
+        #optionsdiv{
+            background-color: #cccccc;
+        }
+    </style>
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+</head>
+<body>
+<div class="header">
+        <a id="sample-logo">Testumgebung</a>
+    </form>
+</div>
+<amp-img src="eye.jpg" width="1208" height="790" layout="responsive"></amp-img>
+
+<h1>Teacher-GUI</h1>
+<amp-img src="server.jpg" width="1208" height="790" layout="responsive"></amp-img>
+<h1>Teacher-Settings</h1>
+<amp-img src="settings.jpg" width="1208" height="790" layout="responsive"></amp-img>
+<div id="optionsdiv">
+<p>
+<h1>Options</h1>
+
+<h2>Patrol Mode:</h2>
+<a>
+    If the button is clicked the list of students will be run through. Each student will be shown for 5 seconds before the next student is shown.
+</a>
+
+
+        <h2>Handout:</h2>
+    A ".zip"-file which includes e.g. a list of tasks for the students to complete for the test.
+
+    Location:
+    In the selected path are going to be 3 directories created.
+    1. Directory: screenshots
+    In this directory are the screenshots of the students. Each student has his own directory with his screenshots.
+    2. Directory: submissions
+    In this directory are the submissions (finished tests) of each student.
+    3. Directory: exports
+    In this directory are the exported JAR-Files, Diagrams, . . .
+<h2>Random-Time:</h2>
+    <a>
+    If the random-time-switch is ON then the screenshots will be created at a random time between 1 second and 30 seconds.
+
+
+
+    </a>
+<h2>Filename extension:</h2>
+<a>
+    Specialises the files in which the lines will be counted.
+    For example: *.java (only the lines in .java-files will be counted. Other files will be ignored.)
+</a>
+</p>
+<p>
+<h1>Student-Info</h1>
+<a>This tab shown all the information of the student.
+    In the bottom is a graph located which shows how much lines the student has written.
+    If the students log out during the test, the graph will show a gap in that time interval.
+    This graph can look like this:</a>
+</div>
+<amp-img src="farid.jpg" width="1208" height="790" layout="responsive"></amp-img>
+</p>
+<h1>Student-GUI</h1>
+<amp-img src="kek.jpg" width="1208" height="790" layout="responsive"></amp-img>
+
+<!--<amp-carousel id="hero-images" width="1024" height="480" layout="responsive" type="slides" autoplay>
+    <a href="#">
+        <amp-img src="melhorn.jpg" layout="fill" alt="product hero 1" attribution="visualhunt"></amp-img>
+        <div class="caption">Location</div>
+    </a>
+    <a href="#">
+        <amp-img src="Avatar_BeatingAngel.jpg" layout="fill" alt="product hero 2" attribution="visualhunt"></amp-img>
+        <div class="caption">So much orange!</div>
+    </a>
+    <a href="#">
+        <amp-img src="pohn.jpg" layout="fill" alt="product hero 3" attribution="visualhunt"></amp-img>
+        <div class="caption">So healthy.</div>
+    </a>
+    <a href="#">
+        <amp-img src="gnadlinger.jpg" layout="fixed" height="537" width="529" position="center" alt="product hero 3" attribution="visualhunt"></amp-img>
+        <div class="caption">So healthy.</div>
+    </a>
+</amp-carousel>
+<button on="tap:my-lightbox" role="button" tabindex="0">
+    Open lightbox
+</button>-->
+<amp-lightbox id="melhorn-lightbox" layout="nodisplay">
+    <div align="center" class="lightbox" align="center" on="tap:melhorn-lightbox.close" role="button" tabindex="0">
+        <h1 >Tobias Melhorn</h1>
+        <amp-img src="melhorn.jpg" layout="fixed" height="300" width="300" alt="product hero 3" attribution="visualhunt"></amp-img>
+
+        <amp-fit-text id="sidechick" width="300" height="200" layout="responsive"
+                      max-font-size="52">
+            Er is a Mensch
+            man glaubt’s fast nicht
+            Auf Parties is er selten dicht
+            Meistens ein ganz ein Ruhiger
+            Aber in Datenbanken is er a ziemlich Guada
+            Lernen tut er immer brav
+            aufs Zocken dafür gar ned scharf
+            Doch sportlich ist der gute Mann
+            er mountainbiked so viel er kann
+            Englisch zählt nicht zu seinen Stärken
+            er punktet aber mit andren Werten
+            Organisiert von hint bis vorn
+            Selten spürt man seinen Zorn
+            Ob Programmieren oder andre Qual
+            Der Tobi hilft dir allemal
+
+
+            Doch was beschreibt unser Hörnchen jetzt?
+            Gibt es wen, der ihn uns ersetzt?
+            Ob Dropbox-Link oder geteilter Screen
+            viele verdanken ihre guten Noten auch ihm
+            Der gute Herr Rammer meinte mal
+            ohne dem Tobi wär‘s hier ziemlich kahl
+            Er sagte auch, er hätt ihn gern
+            denn Religion findet Tobi wohl modern
+            Ich muss auch sagen, er ist ein sehr guter Gesell
+            denn in seiner Birne, da leuchtets immer hell
+
+            Last but not least
+            Ich wills euch sagen
+            Tobi war ein toller Klassenkamerad
+            Manchmal etwas eigen, doch immer voller guter Tat
+
+            So nimm dieses Gedicht als letzten Dank
+            Lieg bloß nicht mit deinen Nerven blank!
+            Zur Matura ist‘s kein Zuckerschlecken
+            Aber Tobi, du wirst des fix alles ganz gut checken
+        </amp-fit-text>
+
+
+    </div>
+</amp-lightbox>
+<amp-lightbox id="hermueller-lightbox" layout="nodisplay">
+    <div class="lightbox"align="center" on="tap:hermueller-lightbox.close" role="button" tabindex="0">
+        <h1 align="center">Phillipp Hermüller</h1>
+        <amp-img src="Avatar_BeatingAngel.jpg" layout="fixed" height="300" width="300"  alt="product hero 3" attribution="visualhunt"></amp-img>
+
+        <amp-fit-text id="sidechick" width="300" height="200" layout="responsive"
+                      max-font-size="52">
+            Obwohl Philipp viele, viele Stunden unserer Schulzeit damit verbracht hat seine geliebten Mangas zu lesen und Animes anzuschauen, ist er definitiv einer der klügsten Köpfe unserer Klasse. Egal ob PHP, Python, Java, oder C# - für ihn ist keine Programmiersprache ein Problem. Aus diesem Grund hat er sich gemeinsam mit seinem Projektteam der Herausforderung gestellt und ein Programm zur Testüberwachung gemacht. Dieses wird er als Erbe an der HTL zurücklassen und damit wohl den nächsten Generationen von Schülern das Leben um einiges erschweren.
+            In unserer Klasse ist Hermi eher ruhig trotzdem bekommt man aus dem Hintergrund immer wieder lustige sarkastische Einwürfe von ihm zu hören. Benötigt man außerdem Hilfe für die Schule steht er natürlich sofort zur Verfügung und unterstützt uns gerne.
+
+            Philipp ist einfach ein wichtiges Mitglied unserer Klassengemeinschaft, auch wenn er in der 1. Klasse erst 2 Wochen nach Schulbeginn zu uns gestoßen ist.
+
+        </amp-fit-text>
+    </div>
+</amp-lightbox>
+<amp-lightbox id="pohn-lightbox" layout="nodisplay">
+    <div class="lightbox" align="center" on="tap:pohn-lightbox.close" role="button" tabindex="0">
+        <h1 >Patrick Pohn</h1>
+        <amp-img src="pohn.jpg" layout="fixed" height="300" width="300" alt="product hero 3" attribution="visualhunt"></amp-img>
+        <amp-fit-text id="sidechick" width="300" height="200" layout="responsive"
+                      max-font-size="52">
+            RIP
+        </amp-fit-text>
+    </div>
+</amp-lightbox>
+<amp-lightbox id="gnadlinger-lightbox" layout="nodisplay">
+    <div align="center" class="lightbox" on="tap:gnadlinger-lightbox.close" role="button" tabindex="0">
+        <h1>Johannes Gnadlinger</h1>
+        <amp-img src="gnadlinger.jpg" layout="fixed" height="300" width="300"  alt="product hero 3" attribution="visualhunt"></amp-img>
+        <div>
+            <amp-fit-text id="sidechick" width="300" height="200" layout="responsive"
+                          max-font-size="52">
+                Manche Schüler sieht man an und fragt sich "Wie haben die es in die Maturaklasse geschafft?".
+                Auf den ersten Blick mag auch unser Gnadibär dazu gehören, doch wenn man ihn etwas beobachtet,
+                merkt man, dass er es sehr wohl verdient hat, hier zu sein. (Fast) Jede (Nach)Prüfung wurde mit Bravour
+                gemeistert und es zeigt sich, dass in dem zu kurz geratenen Kopf doch etwas drinnen ist.
+                Hin und wieder kommt dieses Exemplar eines Schülers etwas verpeilt rüber, zum Beispiel wenn er vergessen hat,
+                dass wir eine Hausaufgabe auf hatten oder was der Teststoff war.
+                Und dann hört man oft etwas wie "Egal, mi zahts ned".
+                Tja ja... Unser Gnadi. Oft genug ist er das Opfer von Sticheleien von vielen aus unserer Klasse,
+                er wird gerne "Auf's Korn genommen" und ist fast so etwas wie das Klassenopfer,
+                aber trotzdem haben wir ihn alle lieb.
+            </amp-fit-text>
+
+        </div>
+    </div>
+</amp-lightbox>
+<div id="teamdiv">
+<h1>Our Team</h1>
+    <amp-accordion>
+        <section>
+            <h1>Melhorn Tobias</h1>
+            <button on="tap:melhorn-lightbox">more Info</button>
+        </section>
+        <section>
+            <h1>Hermüller Phillip</h1>
+            <button on="tap:hermueller-lightbox">more Info</button>
+        </section>
+        <section>
+            <h1>Patrick Pohn</h1>
+            <button on="tap:pohn-lightbox">more Info</button>
+        </section>
+        <section>
+            <h1>Johannes Gnadlinger</h1>
+            <button on="tap:gnadlinger-lightbox">more Info</button>
+        </section>
+    </amp-accordion>
+<!--<h2>
+    Melhorn <button on="tap:melhorn-lightbox" role="button" tabindex="0">
+    Info
+</button>
+</h2>
+<h2>
+    Hermüller <button on="tap:hermueller-lightbox" role="button" tabindex="0">
+    Info
+</button>
+</h2>
+<h2>
+    Pohn <button on="tap:pohn-lightbox" role="button" tabindex="0">
+    Info
+</button>
+</h2>
+<h2>
+    Gnadlinger <button on="tap:gnadlinger-lightbox" role="button" tabindex="0">
+    Info
+</button>
+</h2>-->
+</div>
+
+</body>
+</html>
